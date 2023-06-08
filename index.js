@@ -1,8 +1,7 @@
 const express = require("express"); //importando o server
 const app = express(); //Criando instância do do express
 const bodyParser = require('body-parser');
-const conecction = require("./database/connection");
-const Connection = require("mysql2/typings/mysql/lib/Connection");
+const connection = require("./database/connection");
 
 
 //view engine
@@ -12,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 //Body Parser
-app.use(bodyParser.urlencoded({ extendeds: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Database
@@ -23,8 +22,6 @@ connection
     }).catch((error) => {
         console.log(error);
     });
-
-
 
 //rotas
 
