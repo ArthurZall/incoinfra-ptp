@@ -1,7 +1,8 @@
 const express = require("express"); //importando o server
 const app = express(); //Criando instância do do express
 const bodyParser = require('body-parser');
-const conecction = require("./database/connection")
+const conecction = require("./database/connection");
+const Connection = require("mysql2/typings/mysql/lib/Connection");
 
 
 //view engine
@@ -15,6 +16,13 @@ app.use(bodyParser.urlencoded({ extendeds: false }));
 app.use(bodyParser.json());
 
 //Database
+connection
+    .authenticate()
+    .then(() => {
+        console.log("connection with database sucess!")
+    }).catch((error) => {
+        console.log(error);
+    });
 
 
 
