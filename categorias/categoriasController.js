@@ -27,7 +27,7 @@ router.post("/categorias/save", (req,res)=>{
         })
 
     }else{
-        res.redirect("./admin/categorias/new");
+        res.redirect("/admin/categorias/new");
     }
 })
 
