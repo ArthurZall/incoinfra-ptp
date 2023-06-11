@@ -5,6 +5,7 @@ const connection = require("./database/connection");
 
 const dispositivosController = require("./dispositivos/dispositivosController");
 const manuaisController = require("./manuais/manuaisController");
+const categoriasController = require("./categorias/categoriasController");
 
 const Manual = require("./manuais/Manual");
 
@@ -32,6 +33,7 @@ connection
 
 app.use("/", dispositivosController);
 app.use("/", manuaisController);
+app.use("/", categoriasController);
 
 
 //rotas
