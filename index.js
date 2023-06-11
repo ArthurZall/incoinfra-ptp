@@ -7,7 +7,9 @@ const dispositivosController = require("./dispositivos/dispositivosController");
 const manuaisController = require("./manuais/manuaisController");
 const categoriasController = require("./categorias/categoriasController");
 
+//Models de tabelas
 const Manual = require("./manuais/Manual");
+const Categoria = require("./categorias/Categoria");
 
 
 //view engine
@@ -30,7 +32,7 @@ connection
     });
 
 
-
+//rotas do Express Router
 app.use("/", dispositivosController);
 app.use("/", manuaisController);
 app.use("/", categoriasController);
