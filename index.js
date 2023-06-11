@@ -1,7 +1,12 @@
 const express = require("express"); //importando o server
 const app = express(); //Criando instância do do express
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); 
 const connection = require("./database/connection");
+
+const dispositivosController = require("./dispositivos/dispositivosController");
+const manuaisController = require("./manuais/manuaisController");
+
+const Manual = require("./manuais/Manual");
 
 
 //view engine
@@ -18,10 +23,16 @@ app.use(bodyParser.json());
 connection
     .authenticate()
     .then(() => {
-        console.log("connection with database sucess!")
+        console.log("Connection with database sucess!")
     }).catch((error) => {
         console.log(error);
     });
+
+
+
+app.use("/", dispositivosController);
+app.use("/", manuaisController);
+
 
 //rotas
 
