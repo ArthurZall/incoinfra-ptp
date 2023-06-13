@@ -56,16 +56,36 @@ router.post("/categorias/delete",(req, res)=>{
 //ROTA PARA EDIÇÃO DE CATEGORIA POR ID
 router.get("/admin/categorias/edit/:id", (req, res)=>{
     var id = req.params.id;
+
+    if(isNaN(id)){
+        res.redirect("/admin/categorias")
+    }
+
     Categoria.findByPk(id).then(categoria =>{
 
         if(categoria != undefined){
-            res.render("./admin/editCategorias", {categoria: categoria});
+            res.render("admin/editCategorias", {categoria: categoria});
 
         }else{
             res.redirect("/admin/categorias")
         }
     }).catch(erro =>{
         res.redirect("/admin/categorias")
+    })
+
+});
+
+//ROTA PARA SALVAR EDIÇÕES
+router.post("/admin/categorias/update", (req, res)=>{
+    var id = req.body.id
+    var titulo = req.body.titulo
+    
+    Categoria.update({titulo: titulo, slug: slugify(titulo)}, {
+        where: {
+            id: id
+        }
+    }).then(()=>{
+        res.redirect("/admin/categorias");
     })
 
 });
