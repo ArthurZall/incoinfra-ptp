@@ -30,9 +30,9 @@
                         <td> <%= categoria.titulo %></td>
                         <td> <%= categoria.slug %></td>
                         <td style="text-align: end;">
-                            <button class="btn-icon">
+                            <a href="/admin/categorias/edit/<%= categoria.id %>" class="btn-icon">
                                 <i class="fa-sharp fa-solid fa-pen" style="color: #ffffff;"></i>
-                            </button>  
+                            </a>  
                             
                             <form method="POST" action="/categorias/delete" style="display: inline;" onsubmit="confirmDelecao(event, this)">
                                 <input type="hidden" name="id" value="<%= categoria.id %>">
