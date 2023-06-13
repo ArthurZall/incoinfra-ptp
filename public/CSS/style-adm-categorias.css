@@ -17,8 +17,17 @@ body{
 }
 
 table{
-    margin: auto;
+    margin-top: 15px;
+ 
     width: 100%;
     
+}
+
+.btn-icon{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 15px;
 }
 

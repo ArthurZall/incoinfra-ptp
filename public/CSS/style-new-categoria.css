@@ -7,56 +7,41 @@
 body{
     display: flex;
     justify-content: center;
+    background-color: rgb(27, 27, 27);
 }
 
 .container{
-    border: solid 1px rgba(92, 90, 90, 0.712);
-    width: 50%;
-    height: auto;
-    margin-top: 12%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 15%;
+    width: 60%;
+    border: none;
 }
 
-/* form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+.card{
+    border: none;
+}
 
-.card-head{
-    background-color: rgb(44, 80, 197);
-    padding: 20px;
+.card-header{
+    background-color: #212529;
     color: white;
+    border: none;
 }
 
 .card-body{
-    background-color: white;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-
+    background-color: #2C3034;
 }
 
-input, h2{
-    padding: 15px;
+input{
+    color: white;
+    width: 100%;
+    background-color: #3e454d;
+    border: 1px solid #3e454d;
+    padding: 10px;
+}
+
+input:hover{
+    border: 1px solid rgba(150, 147, 147, 0.699);
 }
 
 .card-footer{
-    display: flex;
-    justify-content: center;
-    border-top: solid 1px rgba(92, 90, 90, 0.712);
-}
-
-button{
-    padding: 15px;
-    flex: 100%;
-    background-color: rgb(154, 161, 184);
-    border: none;
-    margin: 5px;
-}
-
-button:hover{
-    background-color: rgb(68, 101, 207);
-    color: white;
-    cursor: pointer;
+    background-color: #2C3034;
 }
