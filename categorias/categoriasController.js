@@ -23,7 +23,7 @@ router.post("/categorias/save", (req,res)=>{
             titulo: titulo,
             slug: slugify(titulo)
         }).then(()=>{
-            res.redirect("/");
+            res.redirect("/admin/categorias");
         })
 
     }else{
@@ -34,8 +34,41 @@ router.post("/categorias/save", (req,res)=>{
 //ROTA PARA EXIBIR AS CATEGORIAS E AÇÕES
 
 router.get("/admin/categorias", (req, res)=>{
-    res.render("./admin/admCategorias");
+
+    Categoria.findAll().then(categorias =>{
+        res.render("./admin/admCategorias", {categorias: categorias});
+    }); 
 })
+
+//ROTA PARA DELETAR DADOS DA TABELA
+router.post("/categorias/delete",(req, res)=>{
+    let id = req.body.id;
+
+    Categoria.destroy({
+        where: {
+            id: id
+        }
+    }).then(()=>{
+        res.redirect("/admin/categorias")
+    });
+});
+
+//ROTA PARA EDIÇÃO DE CATEGORIA POR ID
+router.get("/admin/categorias/edit/:id", (req, res)=>{
+    var id = req.params.id;
+    Categoria.findByPk(id).then(categoria =>{
+
+        if(categoria != undefined){
+            res.render("./admin/editCategorias", {categoria: categoria});
+
+        }else{
+            res.redirect("/admin/categorias")
+        }
+    }).catch(erro =>{
+        res.redirect("/admin/categorias")
+    })
+
+});
 
 
 module.exports = router;
