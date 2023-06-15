@@ -14,7 +14,7 @@ const Dispositivos = connection.define('dispositivos', {
         allowNull: false
     },
     numeroSerial:{
-        typ: Sequelize.STRING,
+        type: Sequelize.STRING,
         allowNull: false
     },
     SistemaOperacional: {
@@ -26,7 +26,10 @@ const Dispositivos = connection.define('dispositivos', {
         allowNull: false
     },
     Setor: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
     }
 
 })
+
+// Dispositivos.sync({force: true});

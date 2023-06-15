@@ -10,6 +10,7 @@ const categoriasController = require("./categorias/categoriasController");
 //Models de tabelas
 const Manual = require("./manuais/Manual");
 const Categoria = require("./categorias/Categoria");
+const Dispositivos = require("./dispositivos/Dispositivos");
 
 
 //view engine
