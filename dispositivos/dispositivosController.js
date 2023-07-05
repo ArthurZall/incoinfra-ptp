@@ -15,20 +15,19 @@ router.get("/admin/dispositivos/new", (req, res)=>{
 //ROTA PARA SALVAR OS DADOS DO FORMULARIO
 router.post("/dispositivos/save", (req, res)=>{
 
-    let marca = req.body.marca;
-    // let modelo = req.body.modelo;
-    // let numeroSerial = req.body.numeroSerial;
-    // let SistemaOperacional = req.body.SistemaOperacional;     
-    // let configuracao = req.body.Configuracao; 
-    // let setor = req.body.setor; 
 
+    const { marca, modelo, numeroSerial, sistemaOperacional, configuracao, setor } = req.body
+
+    res.status(200).json({marca, modelo, numeroSerial, sistemaOperacional, configuracao, setor});
+
+   
     Dispositivos.create({
         marca: marca,
-        // modelo: modelo,
-        // numeroSerial: numeroSerial,
-        // SistemaOperacional: SistemaOperacional,
-        // Configuração: configuracao,
-        // setor: setor
+        modelo: modelo,
+        numeroSerial: numeroSerial,
+        sistemaOperacional: sistemaOperacional,
+        configuracao: configuracao,
+        setor: setor
 
     }).then(()=>{
         res.redirect("/")

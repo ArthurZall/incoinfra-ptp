@@ -1,35 +1,37 @@
-const Sequelize = require("sequelize");
+const { Sequelize, Model, DataTypes } = require("sequelize");
 const connection = require("../database/connection");
 
 const Dispositivos = connection.define('dispositivos', {
     marca:{
-        type: Sequelize.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     },slug: {
-        type: Sequelize.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     },
     modelo:{
-        type: Sequelize.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     },
     numeroSerial:{
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    sistemaOperacional: {
+        type: DataTypes.TEXT,
         allowNull: false
     },
-    SistemaOperacional: {
-        type: Sequelize.STRING,
+    configuracao: {
+        type: DataTypes.DATE,
         allowNull: false
     },
-    Configuração: {
-        type: Sequelize.DATE,
-        allowNull: false
-    },
-    Setor: {
-        type: Sequelize.STRING,
+    setor: {
+        type: DataTypes.TEXT,
         allowNull: false
     }
 
 })
 
 // Dispositivos.sync({force: true});
+module.exports = Dispositivos;
